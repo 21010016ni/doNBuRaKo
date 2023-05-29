@@ -51,6 +51,7 @@ public class PlayerManager : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		rb.velocity = new Vector3(0, rb.velocity.y, 0);
 		var dt = Time.deltaTime;
 		if (_cool > 0.0f)
 			_cool -= dt;
