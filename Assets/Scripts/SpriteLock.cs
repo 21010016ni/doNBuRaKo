@@ -4,12 +4,9 @@ using UnityEngine;
 
 public class SpriteLock : MonoBehaviour
 {
-	private void Start()
-	{
-		transform.rotation = Camera.main.transform.rotation;
-	}
 	void Update()
 	{
-		transform.localRotation = Quaternion.Euler(transform.localRotation.eulerAngles - transform.parent.transform.localRotation.eulerAngles);
+		var r = Camera.main.transform.eulerAngles;
+		transform.eulerAngles = new Vector3(r.x, r.y, transform.eulerAngles.z);
 	}
 }

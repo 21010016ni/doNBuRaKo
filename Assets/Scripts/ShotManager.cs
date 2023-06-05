@@ -30,9 +30,21 @@ public class ShotManager : MonoBehaviour
 			{
 				player.Damage(atk);
 			}
-			// 飛び散るパーティクル生成
+			else
+			{
+				var base_object = other.GetComponent<PlayerManager>();
+				if (base_object != null)
+				{
+					base_object.Damage(atk);
+				}
+			}
 
-			Destroy(gameObject);
+			if (other.GetComponent<WaterServer>() == null)
+			{
+				// 飛び散るパーティクル生成
+
+				Destroy(gameObject);
+			}
 		}
 	}
 }
